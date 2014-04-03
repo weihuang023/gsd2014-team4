@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/recipeNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/recipe_name_hint"
+        android:inputType="text|textCapWords" >
+
+        <requestFocus />
+    </EditText>
+
+	<EditText
+	    android:id="@+id/recipeIngredientsEditText"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="@dimen/component_bottom_margin"
+	    android:ems="10"
+	    android:hint="@string/recipe_ingredients_hint"
+	    android:inputType="text|textCapWords|textMultiLine" >
+        
+    </EditText>
+
+    <EditText
+        android:id="@+id/recipeInstructionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/component_bottom_margin"
+        android:ems="10"
+        android:hint="@string/recipe_instruction_hint"
+        android:inputType="text|textCapSentences|textMultiLine" >
+
+    </EditText>
+
+    <CheckBox
+        android:id="@+id/mostvistedCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recipe_mostvisted_checkbox" />
+    
+</TableLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/recipe_mostvisted_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/recipe_name"
+        android:enabled="false" 
+        android:focusable="false"
+        android:padding="4dp"
+        android:layout_marginRight="18dp" />
+
+    <TextView
+        android:id="@+id/recipe_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="4dp"
+        android:text="@string/list_item_recipe_name" />
+
+    <TextView
+        android:id="@+id/recipe_ingredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/recipe_name"
+        android:layout_below="@+id/recipe_mostvisted_checkbox"
+       	android:padding="4dp"
+        android:text="@string/list_item_recipe_ingredients" />
+
+</RelativeLayout>
