@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/layout/add_new_recipe.xml
+SHA1-Digest: V9M1/InwHxiVI8eyGCePj8zz71g=
+
+Name: AndroidManifest.xml
+SHA1-Digest: wJUxGQLEpkWJkaB8vNWjT7M/1K0=
+
+Name: res/layout/recipe_entry.xml
+SHA1-Digest: RXHvhNesqUIEdQ7kSq6VfbUfzEw=
+
+Name: res/drawable-mdpi/ic_launcher.png
+SHA1-Digest: RRxOSvpmhVfCwiprVV/wZlaqQpw=
+
+Name: res/drawable-xxhdpi/ic_launcher.png
+SHA1-Digest: GVIfdEOBv4gEny2T1jDhGGsZOBo=
+
+Name: res/layout/activity_main.xml
+SHA1-Digest: gJXkH165hYpgGghMIWA0ulWwy4E=
+
+Name: resources.arsc
+SHA1-Digest: FvOuGwFlVczxpWaQlEK76lK/KRU=
+
+Name: res/drawable-hdpi/ic_launcher.png
+SHA1-Digest: Nq8q3HeTluE5JNCBpVvNy3BXtJI=
+
+Name: res/drawable-xhdpi/ic_launcher.png
+SHA1-Digest: AfPh3OJoypH966MludSW6f1RHg4=
+
+Name: classes.dex
+SHA1-Digest: c9Wrl9khWcEMwLOYYfn0/JF516o=
+
+Name: res/menu/main.xml
+SHA1-Digest: vQb7CvIb8/O0jeaHWYnC7Q+N1zw=
+
+Name: res/layout/edit_recipe.xml
+SHA1-Digest: AHno6qA9TDUPzawMaOgOeinPFCI=
+
