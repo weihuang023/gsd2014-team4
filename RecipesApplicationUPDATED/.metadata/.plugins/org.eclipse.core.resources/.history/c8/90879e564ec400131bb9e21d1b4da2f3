@@ -1,0 +1,97 @@
+package com.newthinktank.recipesapp;
+
+import java.util.HashMap;
+
+import com.newthinktank.contactsapp.R;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+public class EditRecipe extends Activity{
+	
+	EditText recipeName;
+	EditText recipeIngredients;
+	EditText recipeInstruction;
+
+	
+	DBTools dbTools = new DBTools(this);
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.edit_recipe);
+		recipeName = (EditText) findViewById(R.id.recipeName);
+		recipeIngredients = (EditText) findViewById(R.id.recipeIngredients);
+		recipeInstruction = (EditText) findViewById(R.id.recipeInstruction);
+		
+		
+		Intent theIntent = getIntent();
+		
+		String recipeId = theIntent.getStringExtra("recipeId");
+		
+		HashMap<String, String> recipeList = dbTools.getRecipeInfo(recipeId);
+		
+		if(recipeList.size() != 0){
+			
+			recipeName.setText(recipeList.get("recipeName"));
+			recipeIngredients.setText(recipeList.get("recipeIngredients"));
+			recipeInstruction.setText(recipeList.get("recipeInstruction"));
+		
+			
+		}
+	}
+	
+	public void editContact(View view){
+		
+		HashMap<String, String> queryValuesMap = new HashMap<String, String>();
+		recipeName = (EditText) findViewById(R.id.recipeName);
+		recipeIngredients = (EditText) findViewById(R.id.recipeIngredients);
+		recipeInstruction = (EditText) findViewById(R.id.recipeInstruction);
+		
+		Intent theIntent = getIntent();
+		
+		String contactId = theIntent.getStringExtra("contactId");
+		
+		queryValuesMap.put("contactId", contactId);
+		queryValuesMap.put("firstName", firstName.getText().toString());
+		queryValuesMap.put("lastName", lastName.getText().toString());
+		queryValuesMap.put("phoneNumber", phoneNumber.getText().toString());
+		queryValuesMap.put("emailAddress", emailAddress.getText().toString());
+		queryValuesMap.put("homeAddress", homeAddress.getText().toString());
+		
+		dbTools.updateContact(queryValuesMap);
+		this.callMainActivity(view);
+		
+	}
+	
+	public void removeContact(View view){
+		
+		Intent theIntent = getIntent();
+		
+		String contactId = theIntent.getStringExtra("contactId");
+		
+		dbTools.deleteContact(contactId);
+		
+		this.callMainActivity(view);
+		
+	}
+	
+	public void callMainActivity(View view){
+		
+		Intent objIntent = new Intent(getApplication(), MainActivity.class);
+		
+		startActivity(objIntent);
+		
+	}
+	
+}
+
+
+
+
+
+

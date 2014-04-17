@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Recipe</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="add_recipe">Add Recipe</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="recipe_ingredients">Recipe Ingredients</string>
+    <string name="recipe_instruction">Recipe Instruction</string>
+   
+    
+    <string name="recipes_title">Recipes</string>
+    <string name="add_button">ADD</string>
+    
+    <string name="save_data">Save</string>
+    
+    <string name="edit_recipe_title">Edit Contact</string>
+    <string name="edit_button">Edit</string>
+    <string name="delete_button">Delete</string>
+
+</resources>

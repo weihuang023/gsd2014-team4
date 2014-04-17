@@ -1,0 +1,152 @@
+package com.weihuang.recipesapp;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DBTools extends SQLiteOpenHelper {
+	
+	public DBTools(Context applicationContext){
+		
+		super(applicationContext, "recipe.db", null, 1);
+		
+	}
+
+	@Override
+	public void onCreate(SQLiteDatabase database) {
+		
+		String query = "CREATE TABLE recipes ( recipId INTEGER PRIMARY KEY, recipeName TEXT, " +
+		"recipeIngredients TEXT, recipeInstruction TEXT)";
+		
+		database.execSQL(query);
+		
+	}
+
+	@Override
+	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+		
+		String query = "DROP TABLE IF EXISTS recipes";
+		
+		database.execSQL(query);
+		onCreate(database);
+		
+	}
+	
+	public void insertRecipe(HashMap<String, String> queryValues){
+		
+		SQLiteDatabase database = this.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		
+		values.put("recipeName", queryValues.get("recipeName"));
+		values.put("recipeIngredients", queryValues.get("recipeIngredients"));
+		values.put("recipeInstruction", queryValues.get("recipeInstruction"));
+	
+		
+		database.insert("recipes", null, values);
+		
+		database.close();
+		
+	}
+	
+	public int updateRecipe(HashMap<String, String> queryValues){
+		
+		SQLiteDatabase database = this.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		
+		values.put("recipeName", queryValues.get("recipeName"));
+		values.put("recipeIngredients", queryValues.get("recipeIngredients"));
+		values.put("recipeInstruction", queryValues.get("recipeInstruction"));
+	
+		
+		return database.update("recipes", values, 
+				"recipeId" + " = ?", new String[] {queryValues.get("recipeId") });
+		
+	}
+	
+	public void deleteRecipe(String id){
+		
+		SQLiteDatabase database = this.getWritableDatabase();
+		
+		String deleteQuery = "DELETE FROM recipes WHERE recipeId='" + id + "'";
+		
+		database.execSQL(deleteQuery);
+		
+	}
+	
+	public ArrayList<HashMap<String, String>> getAllrecipes(){
+		
+		ArrayList<HashMap<String, String>> recipeArrayList = new ArrayList<HashMap<String, String>>();
+		
+		String selectQuery = "SELECT * FROM recipes ORDER BY recipeName";
+		
+		SQLiteDatabase database = this.getWritableDatabase();
+		
+		Cursor cursor = database.rawQuery(selectQuery, null);
+		
+		if(cursor.moveToFirst()){
+			
+			do{
+				
+				HashMap<String, String> recipeMap = new HashMap<String, String>();
+				
+				recipeMap.put("recipeId", cursor.getString(0));
+				recipeMap.put("recipeName", cursor.getString(1));
+				recipeMap.put("recipeIngredients", cursor.getString(2));
+				recipeMap.put("recipeInstruction", cursor.getString(3));
+				
+				
+				recipeArrayList.add(recipeMap);
+				
+			} while(cursor.moveToNext());
+			
+		}
+		
+		return recipeArrayList;
+		
+	}
+	
+	public HashMap<String, String> getRecipeInfo(String id){
+		
+		HashMap<String, String> recipeMap = new HashMap<String, String>();
+		
+		SQLiteDatabase database = this.getReadableDatabase();
+		
+		String selectQuery = "SELECT * FROM recipes WHERE recipeId='" + id + "'";
+		
+		Cursor cursor = database.rawQuery(selectQuery, null);
+		
+		if(cursor.moveToFirst()){
+			
+			do{
+				
+				recipeMap.put("recipeId", cursor.getString(0));
+				recipeMap.put("recipeName", cursor.getString(1));
+				recipeMap.put("recipeIngredients", cursor.getString(2));
+				recipeMap.put("recipeInstruction", cursor.getString(2));
+				
+
+				
+			} while(cursor.moveToNext());
+			
+		}
+		
+		return recipeMap;
+		
+	}
+	
+}
+
+
+
+
+
+
+
+

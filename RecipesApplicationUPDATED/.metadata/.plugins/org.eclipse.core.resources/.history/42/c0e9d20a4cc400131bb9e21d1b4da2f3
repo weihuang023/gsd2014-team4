@@ -1,0 +1,97 @@
+package com.newthinktank.contactsapp;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.newthinktank.contactsapp.DBTools;
+import com.newthinktank.recipesapp.NewRecipe;
+
+import android.os.Bundle;
+import android.app.ListActivity;
+import android.content.Intent;
+
+import android.view.View;
+
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.ListView;
+
+
+public class MainActivity extends ListActivity {
+
+	// The Intent is used to issue that an operation should
+	// be performed
+
+	Intent intent;
+	TextView recipeId;
+
+	DBTools dbTools = new DBTools(this);
+
+	protected void onCreate(Bundle savedInstanceState) {
+	
+		super.onCreate(savedInstanceState);
+	
+		setContentView(R.layout.activity_main);
+	
+		ArrayList<HashMap<String, String>> recipeList =  dbTools.getAllrecipes();
+
+		if(recipeList.size()!=0) {
+				
+			ListView listView = getListView();
+			listView.setOnItemClickListener(new OnItemClickListener() {
+				
+				public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+					
+					
+					recipeId = (TextView) view.findViewById(R.id.recipeId);
+						
+					String recipeIdValue = recipeId.getText().toString();	
+					
+					// Signals an intention to do something
+					// getApplication() returns the application that owns
+					// this activity
+					
+					Intent  theIndent = new Intent(getApplication(),EditContact.class);
+					
+					// Put additional data in for Edit to use
+					
+					theIndent.putExtra("recipeId", recipeIdValue); 
+					
+					// Calls for Edit
+					
+					startActivity(theIndent); 
+				}
+			}); 
+			
+			// A list adapter is used bridge between a ListView and
+			// the ListViews data
+			
+			// The SimpleAdapter connects the data in an ArrayList
+			// to the XML file
+			
+			// First we pass in a Context to provide information needed
+			// about the application
+			// The ArrayList of data is next followed by the xml resource
+			// Then we have the names of the data in String format and
+			// their specific resource ids
+			
+			ListAdapter adapter = new SimpleAdapter( MainActivity.this,recipeList, R.layout.recipe_entry, new String[] { "recipeId","recipeName"}, new int[] {R.id.recipeId, R.id.recipeName});
+			
+			// setListAdapter provides the Cursor for the ListView
+			// The Cursor provides access to the database data
+			
+			setListAdapter(adapter);
+		}
+	}
+	
+	// When showAdd is called with a click the Activity 
+	// New is called
+	
+	public void showAddRecipe(View view) {
+		Intent theIntent = new Intent(getApplicationContext(), NewRecipe.class);
+		startActivity(theIntent);
+	}
+}

@@ -1,0 +1,17 @@
+1397486805463	Change Layout
+1397500263374	Rename field 'searchView1'
+1397500305771	Change Layout
+1397519155101	Rename resource 'fragment_main.xml'
+1397526431261	Delete element
+1397526503914	Delete element
+1397526524275	Rename resource 'edit_recpe.xml'
+1397526637400	Rename resource 'add_new_recipe.xml'
+1397528375735	Delete element
+1397529589741	Rename field 'contactsTitleTextView'
+1397530260615	Rename resource 'add_new_contact.xml'
+1397531475600	Rename resource 'contact_entry.xml'
+1397531499491	Rename resource 'edit_contact.xml'
+1397531602184	Rename type 'NewContact'
+1397531663268	Rename package 'com.newthinktank.contactsapp'
+1397531963824	Rename type 'EditContact'
+1397532769880	Rename package 'com.newthinktank.recipesapp'
