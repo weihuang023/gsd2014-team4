@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Zanzibar Recipes</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="add_recipe">Add Recipe</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="recipe_time">Est. Cooking time</string>
+   	<string name="recipe_description">Recipe Description</string>
+    <string name="recipe_ingredients">Recipe Ingredients</string>
+    <string name="recipe_instruction">Recipe Instruction</string>
+   
+    
+    <string name="recipes_title">Recipes</string>
+    <string name="add_button">ADD</string>
+    <string name="spinner_button">Go To Select Page</string>
+    
+    <string name="recipe_level_cook">Difficult Level Coocking</string>
+    <string name="save_data">Save</string>
+    
+    <string name="view_recipe_title">View Recipe</string>
+    
+
+    <string name="add_comment_button">C</string>
+    <string name="add_question_button">Q</string>
+ 	<string name="add_favorited_button">F</string>
+ 	<string name="hard_button">HARD</string>
+ 	<string name="average_button">AVERAGE</string>
+	<string name="easy_button">EASY</string>
+ 	<string name="rate_button">Rating</string> 
+ 	
+ 	      
+ 	<string name="ques_recipe_title">Questions</string>
+    <string name="question_name">QUESTION</string>
+    <string name="question_post_button">Post</string>
+    <string name="questions_list">List Question</string>
+    
+    <string name="comm_recipe_title">Comments</string>
+    <string name="comment_name">QUESTION</string>   
+    <string name="comment_post_button">Post</string>
+    <string name="comments_list">List Question</string>
+    
+    <string name="favorited_recipe_title">Favorited</string>  
+    <string name="favorited_list">List Favorited</string>
+    <string name="favorited_delete_button">Delete</string>
+   
+ 	
+ 	
+    <string name="edit_recipe_title">edit Recipe</string>
+    <string name="edit_button">Edit</string>
+    <string name="delete_button">Delete</string>
+    
+</resources>
